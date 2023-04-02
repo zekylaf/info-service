@@ -1,0 +1,18 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "info-service-db": {
+    "name": "info-service-db",
+    "url": "mongodb://localhost:27017/info-service",
+    "database": "info-service",
+    "user": "",
+    "password": "",
+    "port": 27017,
+    "normalizeUndefinedInQuery": "throw",
+    "connector": "@indophi/loopback-connector-mongodb",
+    "debug": true,
+    "allowExtendedOperators": true
+  }
+}

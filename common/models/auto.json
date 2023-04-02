@@ -1,0 +1,51 @@
+{
+  "name": "auto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "color": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "cambiarColor": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "object"
+        }
+      ],
+      "returns": {
+        "arg": "data",
+        "type": "object"
+      },
+      "http": {
+        "verb": "POST",
+        "path": "/cambiar-color"
+      }
+    },
+    "testTx": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "object"
+        }
+      ],
+      "returns": {
+        "arg": "data",
+        "type": "object"
+      },
+      "http": {
+        "verb": "POST",
+        "path": "/test-tx"
+      }
+    }
+  }
+}

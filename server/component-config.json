@@ -1,0 +1,43 @@
+{
+  "@indophi/loopback-component-rabbitmq": {
+    "path": "@indophi/loopback-component-rabbitmq",
+    "options": {
+      "restPort": 15672,
+      "acls": [
+        {
+          "accessType": "*",
+          "principalType": "ROLE",
+          "principalId": "$unauthenticated",
+          "permission": "ALLOW"
+        }
+      ],
+      "logging_levels": {
+        "info": "./logs/rabbitmq-info.log",
+        "debug": "./logs/rabbitmq-debug.log",
+        "warning": "./logs/rabbitmq-warning.log",
+        "error": "./logs/rabbitmq-error.log"
+      }
+    },
+    "topology": {
+      "connection": {
+        "uri": "amqp://localhost:5672/coinsenda",
+        "timeout": 30000
+      },
+      "exchanges": [
+        {
+          "name": "coinsenda_exchange",
+          "type": "topic",
+          "persistent": true
+        }
+      ],
+      "queues": [
+        {
+          "name": "billing-country-queue",
+          "subscribe": true,
+          "limit": 50
+        }
+      ],
+      "bindings": []
+    }
+  }
+}

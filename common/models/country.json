@@ -1,0 +1,150 @@
+{
+  "name": "country",
+  "plural": "countrys",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "alpha3Code",
+    "altSpellings",
+    "area",
+    "borders",
+    "callingCodes",
+    "capital",
+    "currencies",
+    "demonym",
+    "gini",
+    "languages",
+    "latlng",
+    "nativeName",
+    "numericCode",
+    "population",
+    "region",
+    "regionalBlocs",
+    "subregion",
+    "timezones",
+    "topLevelDomain",
+    "cioc",
+    "translations"
+  ],
+  "mixins": {
+    "MessageQueue": {
+      "consumers": {
+        "getExistantCountry": {
+          "queue": "*",
+          "type": "country.getExistantCountry",
+          "response_mode": "reply",
+          "response_onError": "reply"
+        }
+      }
+    }
+  },
+  "properties": {
+    "alpha2Code": {
+      "type": "string",
+      "index": true
+    },
+    "alpha3Code": {
+      "type": "string",
+      "index": true
+    },
+    "altSpellings": {
+      "type": "array",
+      "index": true
+    },
+    "area": {
+      "type": "string",
+      "index": true
+    },
+    "borders": {
+      "type": "array",
+      "index": true
+    },
+    "callingCodes": {
+      "type": "array",
+      "index": true
+    },
+    "prefix": {
+      "type": "array",
+      "index": true
+    },
+    "capital": {
+      "type": "string",
+      "index": true
+    },
+    "currencies": {
+      "type": "string",
+      "index": true
+    },
+    "demonym": {
+      "type": "string",
+      "index": true
+    },
+    "flag": {
+      "type": "string",
+      "index": true
+    },
+    "gini": {
+      "type": "string",
+      "index": true
+    },
+    "languages": {
+      "type": "array",
+      "index": true
+    },
+    "latlng": {
+      "type": "array",
+      "index": true
+    },
+    "name": {
+      "type": "string",
+      "index": true
+    },
+    "code": {
+      "type": "string",
+      "index": true
+    },
+    "nativeName": {
+      "type": "string",
+      "index": true
+    },
+    "numericCode": {
+      "type": "string",
+      "index": true
+    },
+    "population": {
+      "type": "string",
+      "index": true
+    },
+    "region": {
+      "type": "string",
+      "index": true
+    },
+    "regionalBlocs": {
+      "type": "array",
+      "index": true
+    },
+    "subregion": {
+      "type": "string",
+      "index": true
+    },
+    "timezones": {
+      "type": "array",
+      "index": true
+    },
+    "topLevelDomain": {
+      "type": "array",
+      "index": true
+    },
+    "cioc": {
+      "type": "string",
+      "index": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

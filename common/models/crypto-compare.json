@@ -1,0 +1,60 @@
+{
+  "name": "cryptoCompare",
+  "plural": "cryptoCompares",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "indexes": {
+    "uniquePairIndex": {
+      "keys": {
+        "pair": 1
+      },
+      "options": {
+        "unique": true
+      }
+    }
+  },
+  "properties": {
+    "pair": {
+      "type": "string",
+      "required": true
+    },
+    "historical_data": {
+      "type": "array",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created_at",
+      "updatedAt": "updated_at",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    }
+  },
+  "methods": {
+    "getDailyHistoricalData": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "object",
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "data",
+        "type": "object"
+      },
+      "http": {
+        "path": "/get-daily-historical-data",
+        "verb": "POST"
+      }
+    }
+  }
+}

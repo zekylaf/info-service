@@ -1,0 +1,57 @@
+{
+  "name": "info-service",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "npmlogin": "./autorunECS.sh",
+    "start": "npm run npmlogin && node --inspect=0.0.0.0:9237 .",
+    "start:local": "node --inspect=9237 .",
+    "start:dev": "node --inspect=9237 .",
+    "start:prod": "node --inspect=9237 .",
+    "posttest": "npm run lint",
+    "nodemon": "NODE_ENV=local env $(cat ../infrastructure-orchestation/keys.local.env) nodemon --inspect=9237 .",
+    "test": "NODE_ENV=local mocha --parallel --exit",
+    "test-local": "NODE_ENV=local env $(cat ../infrastructure-orchestation/keys.local.env) mocha --inspect=9237 --exit && npm run posttest"
+  },
+  "dependencies": {
+    "@sentry/node": "^5.30.0",
+    "@sentry/tracing": "^6.13.3",
+    "await-to-js": "^2.1.1",
+    "chai": "^4.3.4",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "foo-foo-mq": "^6.0.0",
+    "helmet": "^3.10.0",
+    "http-errors": "^1.7.3",
+    "lodash": "^4.17.15",
+    "loopback": "^3.22.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.2.0",
+    "loopback-ds-timestamp-mixin": "^3.4.1",
+    "mocha": "^8.4.0",
+    "moment": "^2.24.0",
+    "nodemon": "^1.18.10",
+    "request-promise-native": "^1.0.8",
+    "serve-favicon": "^2.0.1",
+    "sinon": "^11.1.0",
+    "strong-error-handler": "^3.0.0"
+  },
+  "optionalDependencies": {
+    "@indophi/loopback-component-rabbitmq": "0.0.10",
+    "@indophi/loopback-connector-mongodb": "3.9.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED ",
+  "description": "info-service"
+}
